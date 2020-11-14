@@ -8,12 +8,14 @@ import java.awt.Toolkit;
  * @author Brayan Garcia Version 1.0
  */
 public class Ventana extends javax.swing.JFrame {
-
+private static final String ver = "1.0.1";
     /**
-     * Creates new form NewJFrame
+     * Crea un nuevo JFrame. Haciendo uso de la clase Toolkit obtenemos el
+     * tamaño de pantalla y colocamos la ventana al centro. Colocamos la
+     * visibilidad de los componentes en false.
      */
     public Ventana() {
-        javax.swing.JOptionPane.showMessageDialog(null,"Bienvenida Pandita ^~^","Bibliotecas Java Lite",javax.swing.JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(null, "Bienvenida Pandita ^~^", "Bibliotecas Java Lite", javax.swing.JOptionPane.PLAIN_MESSAGE);
         initComponents();
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -159,6 +161,11 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox1.
+     * Posterior a eso llama al metodo cambioItem y asigna valores a varios
+     * componentes.
+     */
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         switch (jComboBox1.getSelectedItem().toString()) {
@@ -194,6 +201,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Coloca un modelo especifico al JComboBox2 dependiendo del valor asignado.
+     *
+     * @param n - El valor recibido para seleccionar un modelo especifico.
+     */
     private void cambioItem(byte n) {
         switch (n) {
             case 0:
@@ -207,6 +219,29 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox2.
+     * Posterior a eso llama al metodo de cambio de texto(Clases/Interfaces) para que asigne
+     * valores a los componentes.
+     */
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        switch (jComboBox1.getSelectedItem().toString()) {
+            case "java.lang":
+                cambiotextoLang();
+                break;
+            case "java.util":
+                cambiotextoUtil();
+                break;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox2.
+     * Dependiendo del valor seleccionado llamara al metodo cambioMetodoL()
+     * enviandole un valor en especial. Asignara valores a los componentes y le
+     * dara/quitara visibilidad al JComboBox3.
+     */
     private void cambiotextoLang() {
         switch (jComboBox2.getSelectedItem().toString()) {
             case "Selecciona una clase":
@@ -311,6 +346,12 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que dependiendo del valor recibido asignara un modelo
+     * especifico al JComboBox3
+     *
+     * @param n - El valor recibido para seleccionar un modelo en especifico.
+     */
     private void cambioMetodoL(byte n) {
         switch (n) {
             case 0:
@@ -377,6 +418,128 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox2.
+     * Dependiendo del valor seleccionado llamara al metodo cambioMetodoU()
+     * enviandole un valor en especial. Asignara valores a los componentes y le
+     * dara/quitara visibilidad al JComboBox3.
+     */
+    private void cambiotextoUtil() {
+        switch (jComboBox2.getSelectedItem().toString()) {
+            case "Selecciona una clase":
+                jTextArea1.setText("");
+                jLabel1.setText("");
+                jComboBox3.setVisible(false);
+                break;
+            case "java.util.ArrayList<E>":
+                cambioMetodoU((byte) 0);
+                jComboBox3.setVisible(true);
+                jTextArea1.setText("");
+                jTextArea1.append("Arreglo redimensionable, implementacion del Interface List.\nImplementa todas las operaciones opcionales de una lista,"
+                        + "\npermitiendo todos los elementos incluyendo null.");
+                jLabel1.setText("Clase");
+                break;
+            case "java.util.Arrays":
+                cambioMetodoU((byte) 1);
+                jComboBox3.setVisible(true);
+                jTextArea1.setText("");
+                jTextArea1.append("Contiene varios metodos para manipular arreglos\n(como ordenamiento y busqueda) tambien incluye una fabrica que permite\n"
+                        + "a los arreglos ser mostrados como listas.");
+                jLabel1.setText("Clase");
+                break;
+        }
+    }
+
+    /**
+     * Metodo void que dependiendo del valor recibido asignara un modelo
+     * especifico al JComboBox3
+     *
+     * @param n - El valor recibido para seleccionar un modelo en especifico.
+     */
+    private void cambioMetodoU(byte n) {
+        switch (n) {
+            case 0:
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "-Constructor-", "add(E e)", "add(int index, E element)",
+                    "addAll(Collection<? extends E> c)", "addAll(int index,Collection<? extends E> c)", "clear()", "clone()", "contains(Object o)", "ensureCapacity(int minCapacity)",
+                    "get(int index)", "indexOf(Object o)", "isEmpty()", "lastIndexOf(Object o)", "remove(int index)", "remove(Object o)", "removeAll(Collection<?> c)",
+                    "removeRange(int fromIndex,int toIndex)", "retainAll(Collection<?> c)", "set(int index E element)", "size()", "toArray()", "toArray(T[] a)", "trimToSize()"}));
+                break;
+            case 1:
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "asList(T... a)", "bynarySearch(byte[] a,byte key)", "bynarySearch(byte[] a,int fromIndex,int toIndex,byte key)",
+                    "bynarySearch(char[] a,char key)", "bynarySearch(char[] a,int fromIndex,int toIndex,char key)", "bynarySearch(double[] a, double key)", "bynarySearch(double[] a,int fromIndex,int toIndex,double key)",
+                    "bynarySearch(float[] a,float key)", "bynarySearch(float[] a,int fromIndex,int toIndex,float key)", "bynarySearch(int[] a,int key)", "bynarySearch(int a,int fromIndex,int toIndex,int key)",
+                    "bynarySearch(long[]int fromIndex,int toIndex,long key)", "bynarySearch(long[] a,long key)", "bynarySearch(Object[] a,int fromIndex,int toIndex,Object key)", "bynarySearch(Object[] a,Object key)",
+                    "bynarySearch(short[] a,int fromIndex,int toIndex,short key)", "bynarySearch(short[] a,short key)", "copyOf(boolean[] original,int newLength)", "copyOf(byte[] original,int newLength)", "copyOf(char[] original,int newLength)",
+                    "copyOf(double[] original,int newLength)", "copyOf(float[] original,int newLength)", "copyOf(int[] original,int newLength)", "copyOf(long[] original,int newLength)", "copyOf(short[] original,int newLength)", "copyOf(T[] original,int newLength)",
+                    "copyOfRange(boolean[] original,int from,int to)", "copyOfRange(byte[] original,,int from,int to)", "copyOfRange(char[] original,,int from,int to)", "copyOfRange(double[] original,,int from,int to)", "copyOfRange(float[] original,,int from,int to)",
+                    "copyOfRange(int[] original,,int from,int to)", "copyOfRange(long[] original,,int from,int to)", "copyOfRange(short[] original,int from,int to)", "copyOfRange(T[] original,,int from,int to)", "deepEquals(Object[] a1,Object[] a2)", "equals(boolean[] a,boolean[] a2)",
+                    "equals(byte[] a,byte[] a2)", "equals(char[] a,char[] a2)", "equals(double[] a,double[] a2)", "equals(float[] a,float[] a2)", "equals(int[] a,int[] a2)", "equals(long[] a,long[] a2)", "equals(Object[] a,Object[] a2)", "equals(short[] a,short[] a2)", "fill(boolean[] a,boolean val)",
+                    "fill(boolean[] a,int fromIndex,int toIndex,boolean val)", "fill(byte[] a,byte val)", "fill(byte[] a,int fromIndex,int toIndex,byte val)", "fill(char[] a,char val)", "fill(char[] a,int fromIndex,int toIndex,char val)", "fill(double[] a,double val)",
+                    "fill(double[] a,int fromIndex,int toIndex,double val)", "fill(float[] a,float val)", "fill(float[] a,int fromIndex,int toIndex,float val)", "fill(int[] a,int val)", "fill(int[] a,int fromIndex,int toIndex,int val)", "fill(long[] a,int fromIndex,int toIndex,long val)",
+                    "fill(long[] a,long val)", "fill(Object[] a,int fromIndex,int toIndex,Object val)", "fill(Object[] a,Object val)", "fill(short[] a,int fromIndex,int toIndex,short val)", "fill(short[] a,short val)", "parallelSort(byte[] a)", "parallelSort(byte[] a,int fromIndex,int toIndex)", "parallelSort(char[] a)",
+                    "parallelSort(char[] a,int fromIndex,int toIndex)", "parallelSort(double[] a)", "parallelSort(double[] a,int fromIndex,int toIndex)", "parallelSort(float[] a)", "parallelSort(float[] a,int fromIndex,int toIndex)", "parallelSort(int[] a)", "parallelSort(int[] a,int fromIndex,int toIndex)", "parallelSort(long[] a)", "parallelSort(long[] a,int fromIndex,int toIndex)",
+                    "parallelSort(Object[] a)", "parallelSort(Object[] a,int fromIndex,int toIndex)", "parallelSort(short[] a)", "parallelSort(short[] a,int fromIndex,int toIndex)", "sort(byte[] a)", "sort(byte[] a,int fromIndex,int toIndex)", "sort(char[] a)",
+                    "sort(char[] a,int fromIndex,int toIndex)", "sort(double[] a)", "sort(double[] a,int fromIndex,int toIndex)", "sort(float[] a)", "sort(float[] a,int fromIndex,int toIndex)", "sort(int[] a)", "sort(int[] a,int fromIndex,int toIndex)", "sort(long[] a)", "sort(long[] a,int fromIndex,int toIndex)",
+                    "sort(Object[] a)", "sort(Object[] a,int fromIndex,int toIndex)", "sort(short[] a)", "sort(short[] a,int fromIndex,int toIndex)", "toString(boolean[] a)", "toString(byte[] a)", "toString(char[] a)", "toString(double[] a)", "toString(float[] a)", "toString(int[] a)",
+                    "toString(long[] a)", "toString(Object[] a)", "toString(short[] a)"}));
+                break;
+        }
+    }
+
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Posterior a eso llama al metodo de cambio de texto(Metodos) para que asigne
+     * valores a los componentes.
+     */
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+        switch (jComboBox2.getSelectedItem().toString()) {
+            case "java.lang.Byte":
+                cambiotextoByte();
+                break;
+            case "java.lang.Character":
+                cambiotextoChar();
+                break;
+            case "java.lang.Double":
+                cambiotextoDouble();
+                break;
+            case "java.lang.Float":
+                cambiotextoFloat();
+                break;
+            case "java.lang.Integer":
+                cambiotextoInt();
+                break;
+            case "java.lang.Long":
+                cambiotextoLong();
+                break;
+            case "java.lang.Math":
+                cambiotextoMath();
+                break;
+            case "java.lang.Number":
+                cambiotextoNumber();
+                break;
+            case "java.lang.Object":
+                cambiotextoObject();
+                break;
+            case "java.lang.Short":
+                cambiotextoShort();
+                break;
+            case "java.lang.String":
+                cambiotextoString();
+                break;
+            case "java.util.ArrayList<E>":
+                cambiotextoArrayList();
+                break;
+            case "java.util.Arrays":
+                cambiotextoArrays();
+                break;
+        }
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoByte() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -451,6 +614,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoChar() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -520,6 +687,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoDouble() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -610,6 +781,10 @@ public class Ventana extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoFloat() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -701,6 +876,10 @@ public class Ventana extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoInt() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -806,6 +985,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoLong() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -906,6 +1089,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoMath() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1126,6 +1313,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoObject() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1156,6 +1347,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoNumber() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1195,6 +1390,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoShort() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1279,6 +1478,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoString() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1498,62 +1701,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    private void cambiotextoUtil() {
-        switch (jComboBox2.getSelectedItem().toString()) {
-            case "Selecciona una clase":
-                jTextArea1.setText("");
-                jLabel1.setText("");
-                jComboBox3.setVisible(false);
-                break;
-            case "java.util.ArrayList<E>":
-                cambioMetodoU((byte) 0);
-                jComboBox3.setVisible(true);
-                jTextArea1.setText("");
-                jTextArea1.append("Arreglo redimensionable, implementacion del Interface List.\nImplementa todas las operaciones opcionales de una lista,"
-                        + "\npermitiendo todos los elementos incluyendo null.");
-                jLabel1.setText("Clase");
-                break;
-            case "java.util.Arrays":
-                cambioMetodoU((byte) 1);
-                jComboBox3.setVisible(true);
-                jTextArea1.setText("");
-                jTextArea1.append("Contiene varios metodos para manipular arreglos\n(como ordenamiento y busqueda) tambien incluye una fabrica que permite\n"
-                        + "a los arreglos ser mostrados como listas.");
-                jLabel1.setText("Clase");
-                break;
-        }
-    }
-
-    private void cambioMetodoU(byte n) {
-        switch (n) {
-            case 0:
-                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "-Constructor-", "add(E e)", "add(int index, E element)",
-                    "addAll(Collection<? extends E> c)", "addAll(int index,Collection<? extends E> c)", "clear()", "clone()", "contains(Object o)", "ensureCapacity(int minCapacity)",
-                    "get(int index)", "indexOf(Object o)", "isEmpty()", "lastIndexOf(Object o)", "remove(int index)", "remove(Object o)", "removeAll(Collection<?> c)",
-                    "removeRange(int fromIndex,int toIndex)", "retainAll(Collection<?> c)", "set(int index E element)", "size()", "toArray()", "toArray(T[] a)", "trimToSize()"}));
-                break;
-            case 1:
-                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "asList(T... a)", "bynarySearch(byte[] a,byte key)", "bynarySearch(byte[] a,int fromIndex,int toIndex,byte key)",
-                    "bynarySearch(char[] a,char key)", "bynarySearch(char[] a,int fromIndex,int toIndex,char key)", "bynarySearch(double[] a, double key)", "bynarySearch(double[] a,int fromIndex,int toIndex,double key)",
-                    "bynarySearch(float[] a,float key)", "bynarySearch(float[] a,int fromIndex,int toIndex,float key)", "bynarySearch(int[] a,int key)", "bynarySearch(int a,int fromIndex,int toIndex,int key)",
-                    "bynarySearch(long[]int fromIndex,int toIndex,long key)", "bynarySearch(long[] a,long key)", "bynarySearch(Object[] a,int fromIndex,int toIndex,Object key)", "bynarySearch(Object[] a,Object key)",
-                    "bynarySearch(short[] a,int fromIndex,int toIndex,short key)", "bynarySearch(short[] a,short key)", "copyOf(boolean[] original,int newLength)", "copyOf(byte[] original,int newLength)", "copyOf(char[] original,int newLength)",
-                    "copyOf(double[] original,int newLength)", "copyOf(float[] original,int newLength)", "copyOf(int[] original,int newLength)", "copyOf(long[] original,int newLength)", "copyOf(short[] original,int newLength)", "copyOf(T[] original,int newLength)",
-                    "copyOfRange(boolean[] original,int from,int to)", "copyOfRange(byte[] original,,int from,int to)", "copyOfRange(char[] original,,int from,int to)", "copyOfRange(double[] original,,int from,int to)", "copyOfRange(float[] original,,int from,int to)",
-                    "copyOfRange(int[] original,,int from,int to)", "copyOfRange(long[] original,,int from,int to)", "copyOfRange(short[] original,int from,int to)", "copyOfRange(T[] original,,int from,int to)", "deepEquals(Object[] a1,Object[] a2)", "equals(boolean[] a,boolean[] a2)",
-                    "equals(byte[] a,byte[] a2)", "equals(char[] a,char[] a2)", "equals(double[] a,double[] a2)", "equals(float[] a,float[] a2)", "equals(int[] a,int[] a2)", "equals(long[] a,long[] a2)", "equals(Object[] a,Object[] a2)", "equals(short[] a,short[] a2)", "fill(boolean[] a,boolean val)",
-                    "fill(boolean[] a,int fromIndex,int toIndex,boolean val)", "fill(byte[] a,byte val)", "fill(byte[] a,int fromIndex,int toIndex,byte val)", "fill(char[] a,char val)", "fill(char[] a,int fromIndex,int toIndex,char val)", "fill(double[] a,double val)",
-                    "fill(double[] a,int fromIndex,int toIndex,double val)", "fill(float[] a,float val)", "fill(float[] a,int fromIndex,int toIndex,float val)", "fill(int[] a,int val)", "fill(int[] a,int fromIndex,int toIndex,int val)", "fill(long[] a,int fromIndex,int toIndex,long val)",
-                    "fill(long[] a,long val)", "fill(Object[] a,int fromIndex,int toIndex,Object val)", "fill(Object[] a,Object val)", "fill(short[] a,int fromIndex,int toIndex,short val)", "fill(short[] a,short val)", "parallelSort(byte[] a)", "parallelSort(byte[] a,int fromIndex,int toIndex)", "parallelSort(char[] a)",
-                    "parallelSort(char[] a,int fromIndex,int toIndex)", "parallelSort(double[] a)", "parallelSort(double[] a,int fromIndex,int toIndex)", "parallelSort(float[] a)", "parallelSort(float[] a,int fromIndex,int toIndex)", "parallelSort(int[] a)", "parallelSort(int[] a,int fromIndex,int toIndex)", "parallelSort(long[] a)", "parallelSort(long[] a,int fromIndex,int toIndex)",
-                    "parallelSort(Object[] a)", "parallelSort(Object[] a,int fromIndex,int toIndex)", "parallelSort(short[] a)", "parallelSort(short[] a,int fromIndex,int toIndex)", "sort(byte[] a)", "sort(byte[] a,int fromIndex,int toIndex)", "sort(char[] a)",
-                    "sort(char[] a,int fromIndex,int toIndex)", "sort(double[] a)", "sort(double[] a,int fromIndex,int toIndex)", "sort(float[] a)", "sort(float[] a,int fromIndex,int toIndex)", "sort(int[] a)", "sort(int[] a,int fromIndex,int toIndex)", "sort(long[] a)", "sort(long[] a,int fromIndex,int toIndex)",
-                    "sort(Object[] a)", "sort(Object[] a,int fromIndex,int toIndex)", "sort(short[] a)", "sort(short[] a,int fromIndex,int toIndex)", "toString(boolean[] a)", "toString(byte[] a)", "toString(char[] a)", "toString(double[] a)", "toString(float[] a)", "toString(int[] a)",
-                    "toString(long[] a)", "toString(Object[] a)", "toString(short[] a)"}));
-                break;
-        }
-    }
-
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoArrayList() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -1681,6 +1832,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
     private void cambiotextoArrays() {
         switch (jComboBox3.getSelectedItem().toString()) {
             case "Selecciona un método":
@@ -2338,73 +2493,26 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-        switch (jComboBox1.getSelectedItem().toString()) {
-            case "java.lang":
-                cambiotextoLang();
-                break;
-            case "java.util":
-                cambiotextoUtil();
-                break;
-        }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        // TODO add your handling code here:
-        switch (jComboBox2.getSelectedItem().toString()) {
-            case "java.lang.Byte":
-                cambiotextoByte();
-                break;
-            case "java.lang.Character":
-                cambiotextoChar();
-                break;
-            case "java.lang.Double":
-                cambiotextoDouble();
-                break;
-            case "java.lang.Float":
-                cambiotextoFloat();
-                break;
-            case "java.lang.Integer":
-                cambiotextoInt();
-                break;
-            case "java.lang.Long":
-                cambiotextoLong();
-                break;
-            case "java.lang.Math":
-                cambiotextoMath();
-                break;
-            case "java.lang.Number":
-                cambiotextoNumber();
-                break;
-            case "java.lang.Object":
-                cambiotextoObject();
-                break;
-            case "java.lang.Short":
-                cambiotextoShort();
-                break;
-            case "java.lang.String":
-                cambiotextoString();
-                break;
-            case "java.util.ArrayList<E>":
-                cambiotextoArrayList();
-                break;
-            case "java.util.Arrays":
-                cambiotextoArrays();
-                break;
-        }
-    }//GEN-LAST:event_jComboBox3ActionPerformed
-
+    /**
+     * Metodo void que muestra la version actual y el registro de cambios.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(this,"Versión 1.0:\njava.lang. (Clases basicas) añadido.\njava.util. (Arrays y ArrayList) añadido.","Versión",javax.swing.JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Versión "+ver+":\njava.lang. (Clases basicas) añadido.\njava.util. (Arrays y ArrayList) añadido.\nRev 0.1: Documentacion y orden", "Versión", javax.swing.JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Metodo void que muestra un mensaje dedicado a la persona para quien fue realizado este proyecto.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         javax.swing.JOptionPane.showMessageDialog(this,"Como regalo y premio por todo tu esfuerzo pandita ^~^\nEspero que te sirva.\nCon cariño: Brayan","Mensaje para ti",javax.swing.JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Como regalo y premio por todo tu esfuerzo pandita ^~^\nEspero que te sirva.\nCon cariño: Brayan", "Mensaje para ti", javax.swing.JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Selecciona una imagen en la ruta dada para asignarla como icono del JFrame.
+     * @return - La imagen especificada. 
+     */
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
