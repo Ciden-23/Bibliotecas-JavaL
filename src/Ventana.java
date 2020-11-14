@@ -8,7 +8,9 @@ import java.awt.Toolkit;
  * @author Brayan Garcia Version 1.0
  */
 public class Ventana extends javax.swing.JFrame {
-private static final String ver = "1.0.1";
+
+    private static final String ver = "1.0.1";
+
     /**
      * Crea un nuevo JFrame. Haciendo uso de la clase Toolkit obtenemos el
      * tamaño de pantalla y colocamos la ventana al centro. Colocamos la
@@ -221,8 +223,8 @@ private static final String ver = "1.0.1";
 
     /**
      * Metodo void que comprueba el valor seleccionado en el JComboBox2.
-     * Posterior a eso llama al metodo de cambio de texto(Clases/Interfaces) para que asigne
-     * valores a los componentes.
+     * Posterior a eso llama al metodo de cambio de texto(Clases/Interfaces)
+     * para que asigne valores a los componentes.
      */
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
@@ -488,8 +490,8 @@ private static final String ver = "1.0.1";
 
     /**
      * Metodo void que comprueba el valor seleccionado en el JComboBox3.
-     * Posterior a eso llama al metodo de cambio de texto(Metodos) para que asigne
-     * valores a los componentes.
+     * Posterior a eso llama al metodo de cambio de texto(Metodos) para que
+     * asigne valores a los componentes.
      */
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
@@ -2498,11 +2500,12 @@ private static final String ver = "1.0.1";
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(this, "Versión "+ver+":\njava.lang. (Clases basicas) añadido.\njava.util. (Arrays y ArrayList) añadido.\nRev 0.1: Documentacion y orden", "Versión", javax.swing.JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Versión " + ver + ":\njava.lang. (Clases basicas) añadido.\njava.util. (Arrays y ArrayList) añadido.\nRev 0.1: Documentacion y orden", "Versión", javax.swing.JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * Metodo void que muestra un mensaje dedicado a la persona para quien fue realizado este proyecto.
+     * Metodo void que muestra un mensaje dedicado a la persona para quien fue
+     * realizado este proyecto.
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -2510,8 +2513,10 @@ private static final String ver = "1.0.1";
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * Selecciona una imagen en la ruta dada para asignarla como icono del JFrame.
-     * @return - La imagen especificada. 
+     * Selecciona una imagen en la ruta dada para asignarla como icono del
+     * JFrame.
+     *
+     * @return - La imagen especificada.
      */
     @Override
     public Image getIconImage() {
