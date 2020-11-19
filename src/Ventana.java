@@ -4,12 +4,26 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 /**
+ * Este programa contiene traducciones de la documentacion oficial de java
+ * obtenida de la pagina:
+ * https://docs.oracle.com/en/java/javase/15/docs/api/index.html Para añadir
+ * bibliotecas nuevas, se debe añadir el caso deseado al metodo
+ * jComboBox1ActionPerformed(evt) y al metodo jComboBox2ActionPerformed(evt) si
+ * este contendra clases y metodos, o solo sera un Placeholder. Para añadir
+ * clases nuevas, se debe añadir el caso deseado al metodo cambioItem(n) y al
+ * metodo cambiotexto*****() dependiendo la biblioteca. Para añadir metodos
+ * nuevos se debe añadir el caso deseado al metodo cambioMetodo*(n) dependiendo
+ * el caso, al metodo jComboBox3ActionPerformed(evt) y crear o modificar el
+ * metodo correspondiente de cambioTexto*****(). Por favor intentar mantener el
+ * codigo limpio y ordenado, siguiendo los formatos que tienen los nombres,
+ * cualquier cambio brusco dejarlo documentado aqui y en la documentacion
+ * respectiva del metodo.
  *
- * @author Brayan Garcia Version 1.0
+ * @author Brayan Garcia Version 1.2
  */
 public class Ventana extends javax.swing.JFrame {
 
-    private static final String ver = "1.0.1";
+    private static final String ver = "1.2";
 
     /**
      * Crea un nuevo JFrame. Haciendo uso de la clase Toolkit obtenemos el
@@ -25,6 +39,7 @@ public class Ventana extends javax.swing.JFrame {
         int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
         setLocation((ancho / 2) - (this.getWidth() / 2), (alto / 2) - (this.getHeight() / 2));
         setSize(655, 420);
+        jComboBox1.requestFocus();
         jComboBox2.setVisible(false);
         jComboBox3.setVisible(false);
         jScrollPane1.setVisible(false);
@@ -174,6 +189,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang":
                 cambioItem((byte) 0);
                 jComboBox2.setVisible(true);
+                jComboBox2.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Provee clases que son fundamentales para el diseño \nde la programacion en Java.");
                 jLabel1.setText("Biblioteca");
@@ -183,6 +199,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.util":
                 cambioItem((byte) 1);
                 jComboBox2.setVisible(true);
+                jComboBox2.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Contiene las colecciones del framework, clases de \ncolecciones legadas, "
                         + "modelo de eventos, \nutilidades de fecha y hora, "
@@ -206,17 +223,17 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Coloca un modelo especifico al JComboBox2 dependiendo del valor asignado.
      *
-     * @param n - El valor recibido para seleccionar un modelo especifico.
+     * @param n El valor recibido para seleccionar un modelo especifico.
      */
     private void cambioItem(byte n) {
         switch (n) {
             case 0:
                 jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona una clase", "java.lang.Boolean", "java.lang.Byte",
                     "java.lang.Character", "java.lang.Double", "java.lang.Float", "java.lang.Integer", "java.lang.Long", "java.lang.Math", "java.lang.Number",
-                    "java.lang.Object", "java.lang.Short", "java.lang.String", "java.lang.Void"}));
+                    "java.lang.Object", "java.lang.Runnable", "java.lang.Short", "java.lang.String", "java.lang.Thread", "java.lang.Void"}));
                 break;
             case 1:
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona una clase", "java.util.ArrayList<E>", "java.util.Arrays"}));
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona una clase", "java.util.ArrayList<E>", "java.util.Arrays", "java.util.regex.Pattern"}));
                 break;
         }
     }
@@ -261,6 +278,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Byte":
                 cambioMetodoL((byte) 0);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo byte en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -268,6 +286,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Character":
                 cambioMetodoL((byte) 1);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo char en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -275,6 +294,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Double":
                 cambioMetodoL((byte) 2);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo double en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -282,6 +302,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Float":
                 cambioMetodoL((byte) 3);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo float en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -289,6 +310,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Integer":
                 cambioMetodoL((byte) 4);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo int en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -296,6 +318,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Long":
                 cambioMetodoL((byte) 5);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo long en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -303,6 +326,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Math":
                 cambioMetodoL((byte) 6);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Contiene metodos para realizar operaciones numericas.");
                 jLabel1.setText("Clase Final");
@@ -310,6 +334,7 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Number":
                 cambioMetodoL((byte) 7);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Es la superclase de la plataforma de clases que representan"
                         + " \nvalores numericos.");
@@ -318,14 +343,24 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.Object":
                 cambioMetodoL((byte) 8);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Raiz de toda la jeraraquia de clases, toda clase tiene a la"
                         + " \n la clase Object como superclase.");
                 jLabel1.setText("Clase");
                 break;
+            case "java.lang.Runnable":
+                jTextArea1.setText("");
+                jTextArea1.append("El interface Runnable debe ser implementado por cualquier clase\ncuyas instancias pretendan ser ejecutadas por un hilo,"
+                        + " la clase debera definir\ny sobreescribir un metodo sin argumentos run().\nMetodo - void run():\nCuando este interface se uso para "
+                        + "crear un hilo, iniciar el hilo causa el llamado\ndel metodo run del objeto en un hilo de ejecucion separado.");
+                jLabel1.setText("Interface");
+                jComboBox3.setVisible(false);
+                break;
             case "java.lang.Short":
                 cambioMetodoL((byte) 9);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Almacena un valor primitivo short en un objeto.");
                 jLabel1.setText("Clase Final");
@@ -333,17 +368,27 @@ public class Ventana extends javax.swing.JFrame {
             case "java.lang.String":
                 cambioMetodoL((byte) 10);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
                 jTextArea1.setText("");
                 jTextArea1.append("Representa cadenas de caracteres, todas las cadenas literales"
                         + " \nen Java son implementadas como instancias de esta clase.");
                 jLabel1.setText("Clase Final");
                 break;
-            case "java.lang.Void":
+            case "java.lang.Thread":
+                cambioMetodoL((byte) 11);
                 jComboBox3.setVisible(true);
+                jComboBox3.requestFocus();
+                jTextArea1.setText("");
+                jTextArea1.append("Es el hilo de ejecucion en un programa, la JVM permite que haya"
+                        + " \nvarios hilos en ejecucion simultaneamente.");
+                jLabel1.setText("Clase");
+                break;
+            case "java.lang.Void":
                 jTextArea1.setText("");
                 jTextArea1.append("Ininstanciable marcador de clase que representa a la palabra"
                         + " \nreservada de Java void.");
                 jLabel1.setText("Clase Final");
+                jComboBox3.setVisible(false);
                 break;
         }
     }
@@ -352,7 +397,7 @@ public class Ventana extends javax.swing.JFrame {
      * Metodo void que dependiendo del valor recibido asignara un modelo
      * especifico al JComboBox3
      *
-     * @param n - El valor recibido para seleccionar un modelo en especifico.
+     * @param n El valor recibido para seleccionar un modelo en especifico.
      */
     private void cambioMetodoL(byte n) {
         switch (n) {
@@ -411,12 +456,21 @@ public class Ventana extends javax.swing.JFrame {
             case 10:
                 jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "-Constructor-", "charAt(int index)", "compareTo(String anotherString)",
                     "compareToIgnoreCase(String str)", "concat(String str)", "contains(CharSecuence s)", "contentEquals(CharSequence cs)", "endsWith(String suffix)", "equals(Object anObject)",
-                    "equalsIgnoreCase(String anotherString)", "getChars(int srcBegin,int srcEnd,char[] dst,int dstBegin)", "indexOf(String str)", "indexOf(String str,int fromIndex)", "isEmpty()", "lastIndexOf(String str)",
-                    "lastIndexOf(String str,int fromIndex)", "length()", "regionMatches(boolean ignoreCase,int toffset,String other,int ooffset,int len)", "regionMatches(int toffset,String other,int ooffset,int len)",
-                    "replace(char oldChar,char newChar)", "replace(CharSequence target,String replacement", "replaceAll(String regex,String replacement)", "replaceFirst(String regex,String replacement)",
-                    "startsWith(String prefix)", "startsWith(String prefix,int toffset)", "substring(int beginIndex)", "substring(int beginIndex,int endIndex)", "toCharArray()",
+                    "equalsIgnoreCase(String anotherString)", "getChars(int srcBegin,int srcEnd,char[] dst,int dstBegin)", "indent​(int n)", "indexOf(String str)", "indexOf(String str,int fromIndex)", "intern()", "isBlank()", "isEmpty()", "lastIndexOf(String str)",
+                    "lastIndexOf(String str,int fromIndex)", "length()", "matches​(String regex)", "regionMatches(boolean ignoreCase,int toffset,String other,int ooffset,int len)", "regionMatches(int toffset,String other,int ooffset,int len)",
+                    "repeat(int count)", "replace(char oldChar,char newChar)", "replace(CharSequence target,String replacement", "replaceAll(String regex,String replacement)", "replaceFirst(String regex,String replacement)",
+                    "startsWith(String prefix)", "startsWith(String prefix,int toffset)", "strip()", "stripIndent()", "stripLeading()", "stripTrailing()", "substring(int beginIndex)", "substring(int beginIndex,int endIndex)", "toCharArray()",
                     "toLowerCase()", "toString()", "toUpperCase()", "trim()", "valueOf(boolean b)", "valueOf(char c)", "valueOf(char[] data)", "valueOf(char[] data,int offset,int count)",
                     "valueOf(double d)", "valueOf(float f)", "valueOf(int i)", "valueOf(long l)", "valueOf(Object obj)"}));
+                break;
+            case 11:
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecciona un método", "-Clases Internas-", "-Constantes-", "-Constructor-", "activeCount()", "checkAccess()", "clone()",
+                    "currentThread()", "dumpStack()", "enumerate(Thread[] tarray)", "getAllStackTraces()", "getContextClassLoader()", "getDefaultUncaughtExceptionHandler()", "getId()", "getName()", "getPriority()", "getStackTrace()",
+                    "getState()", "getThreadGroup()", "getUncaughtExceptionHandler()", "holdsLock(Object obj)", "interrupt()", "interrupted()", "isAlive()", "isDaemon()", "isInterrupted()", "join()", "join(long millis)",
+                    "join(long millis, int nanos)", "onSpinWait()", "run()", "setContextClassLoader(ClassLoader cl)", "setDaemon(boolean on)", "setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)",
+                    "setName(String name)", "setPriority(int newPriority)", "setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)", "sleep(long millis)", "sleep(long millis, int nanos)", "start()",
+                    "toString()", "yield()",}));
+                break;
         }
     }
 
@@ -435,6 +489,7 @@ public class Ventana extends javax.swing.JFrame {
                 break;
             case "java.util.ArrayList<E>":
                 cambioMetodoU((byte) 0);
+                jComboBox3.requestFocus();
                 jComboBox3.setVisible(true);
                 jTextArea1.setText("");
                 jTextArea1.append("Arreglo redimensionable, implementacion del Interface List.\nImplementa todas las operaciones opcionales de una lista,"
@@ -443,11 +498,20 @@ public class Ventana extends javax.swing.JFrame {
                 break;
             case "java.util.Arrays":
                 cambioMetodoU((byte) 1);
+                jComboBox3.requestFocus();
                 jComboBox3.setVisible(true);
                 jTextArea1.setText("");
                 jTextArea1.append("Contiene varios metodos para manipular arreglos\n(como ordenamiento y busqueda) tambien incluye una fabrica que permite\n"
                         + "a los arreglos ser mostrados como listas.");
                 jLabel1.setText("Clase");
+                break;
+            case "java.util.regex.Pattern":
+                //cambioMetodoU((byte) 2);
+                //jComboBox3.requestFocus();
+                // jComboBox3.setVisible(true);
+                jTextArea1.setText("");
+                jTextArea1.append("Una representacion compilada de expresiones regulares, una expresion regular,\nespecificada como un String, primero debe ser compilada en una instancia\nde esta clase.");
+                jLabel1.setText("Clase Final");
                 break;
         }
     }
@@ -456,7 +520,7 @@ public class Ventana extends javax.swing.JFrame {
      * Metodo void que dependiendo del valor recibido asignara un modelo
      * especifico al JComboBox3
      *
-     * @param n - El valor recibido para seleccionar un modelo en especifico.
+     * @param n El valor recibido para seleccionar un modelo en especifico.
      */
     private void cambioMetodoU(byte n) {
         switch (n) {
@@ -528,6 +592,9 @@ public class Ventana extends javax.swing.JFrame {
                 break;
             case "java.lang.String":
                 cambiotextoString();
+                break;
+            case "java.lang.Thread":
+                cambiotextoThread();
                 break;
             case "java.util.ArrayList<E>":
                 cambiotextoArrayList();
@@ -1548,6 +1615,11 @@ public class Ventana extends javax.swing.JFrame {
                         + "dst: Arreglo de char destino.\ndstBegin: Indice de comienzo en el arreglo destino");
                 jLabel1.setText("void");
                 break;
+            case "indent​(int n)":
+                jTextArea1.setText("");
+                jTextArea1.append("Ajusta la identacion de cada linea de este String basado en el\nvalor de n, y normaliza los caracteres de terminacion de linea.");
+                jLabel1.setText("String");
+                break;
             case "indexOf(String str)":
                 jTextArea1.setText("");
                 jTextArea1.append("Retorna el indice donde esta la primera coincidencia con\nel substring especificado.\nRetorna -1 si no hay coincidencia.");
@@ -1557,6 +1629,16 @@ public class Ventana extends javax.swing.JFrame {
                 jTextArea1.setText("");
                 jTextArea1.append("Retorna el indice donde esta la primera coincidencia con\nel substring especificado, empezando en el indice dado.\nRetorna -1 si no hay coincidencia.");
                 jLabel1.setText("int");
+                break;
+            case "intern()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna la representacion canónica de este objeto String.");
+                jLabel1.setText("String");
+                break;
+            case "isBlank()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna true si el String esta vacio o unicamente contiene\ncaracteres en blanco, de lo contrario retorna false.");
+                jLabel1.setText("boolean");
                 break;
             case "isEmpty()":
                 jTextArea1.setText("");
@@ -1578,6 +1660,11 @@ public class Ventana extends javax.swing.JFrame {
                 jTextArea1.append("Retorna el tamaño del String.");
                 jLabel1.setText("int");
                 break;
+            case "matches​(String regex)":
+                jTextArea1.setText("");
+                jTextArea1.append("Indica si este String coincide o no con la expresion regular dada.");
+                jLabel1.setText("boolean");
+                break;
             case "regionMatches(boolean ignoreCase,int toffset,String other,int ooffset,int len)":
                 jTextArea1.setText("");
                 jTextArea1.append("Prueba si las regiones de 2 String son iguales.\nParametros:\nignoreCase: Si es true ignora las mayúsculas y minúsculas.\n"
@@ -1589,6 +1676,11 @@ public class Ventana extends javax.swing.JFrame {
                 jTextArea1.append("Prueba si las regiones de 2 String son iguales.\nParametros:\ntoffset: El indice de comienzo de subregion en este String."
                         + "\nother: El otro argumento String.\nooffset: El indice de comienzo de subregion en String argumento.\nlen: Numero de caracteres a comparar.");
                 jLabel1.setText("boolean");
+                break;
+            case "repeat(int count)":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna un String cuyo valor es la concatenacion del String\nrepetida la cantidad de veces del argumento.");
+                jLabel1.setText("String");
                 break;
             case "replace(char oldChar,char newChar)":
                 jTextArea1.setText("");
@@ -1619,6 +1711,26 @@ public class Ventana extends javax.swing.JFrame {
                 jTextArea1.setText("");
                 jTextArea1.append("Prueba si el subtring de este String que comienza en el indice\nespecificado comienza con el prefijo dado.");
                 jLabel1.setText("boolean");
+                break;
+            case "strip()":
+                jTextArea1.setText("Retorna el valor de este String sin ningun espacio al comienzo o final.");
+                jTextArea1.append(".");
+                jLabel1.setText("String");
+                break;
+            case "stripIndent()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el valor de este String con espacios en blanco incidentales removidos\ndel principio y final de cada linea.");
+                jLabel1.setText("String");
+                break;
+            case "stripLeading()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el valor de este String sin ningun espacio al comienzo.");
+                jLabel1.setText("String");
+                break;
+            case "stripTrailing()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el valor de este String sin ningun espacio al final.");
+                jLabel1.setText("String");
                 break;
             case "substring(int beginIndex)":
                 jTextArea1.setText("");
@@ -1652,7 +1764,7 @@ public class Ventana extends javax.swing.JFrame {
                 break;
             case "trim()":
                 jTextArea1.setText("");
-                jTextArea1.append("Retorna el valor de este String sin ningun espacio al comienzo o final.");
+                jTextArea1.append("Retorna el valor de este String sin ningun espacio al comienzo o final.\n(Dependiente del caracter de espacio: 'U+0020')");
                 jLabel1.setText("String");
                 break;
             case "valueOf(boolean b)":
@@ -1699,6 +1811,230 @@ public class Ventana extends javax.swing.JFrame {
                 jTextArea1.setText("");
                 jTextArea1.append("Metodo Estatico\nRetorna la representacion en String del argumento Object.\nEj: String.valueOf(Object obj)");
                 jLabel1.setText("static String");
+                break;
+        }
+    }
+
+    /**
+     * Metodo void que comprueba el valor seleccionado en el JComboBox3.
+     * Dependiendo del valor seleccionado asignara valores a los componentes.
+     */
+    private void cambiotextoThread() {
+        switch (jComboBox3.getSelectedItem().toString()) {
+            case "Selecciona un método":
+                jTextArea1.setText("");
+                jLabel1.setText("");
+                break;
+            case "-Clases Internas-":
+                jTextArea1.setText("");
+                jTextArea1.append("Static Nested Classes\nThread.state\nEl estado de un hilo.\n");
+                jTextArea1.append("Thread.UncaughtExceptionHandler\nInterface para los manipuladores invocados cuando un Thread termina\n"
+                        + "abruptamente por una excepcion sin controlar");
+                jLabel1.setText("Clase estática e Interface estático");
+                break;
+            case "-Constantes-":
+                jTextArea1.setText("");
+                jTextArea1.append("Constantes Estaticas\nMAX_PRIORITY\nLa maxima prioridad que un hilo puede tener.\nEj: Thread.MAX_PRIORITY\n");
+                jTextArea1.append("MIN_PRIORITY\nLa minima prioridad que un hilo puede tener.\nEj: Thread.MIN_PRIORITY\n");
+                jTextArea1.append("NORM_PRIORITY\nLa prioridad por defecto asignada a un hilo.\nEj: Thread.NORM_PRIORITY\n");
+                jLabel1.setText("static int");
+                break;
+            case "-Constructor-":
+                jTextArea1.setText("");
+                jTextArea1.append("Thread()\nCrea un nuevo hilo.\nThread(Runnable target)\nCrea un nuevo hilo."
+                        + "\nThread(Runnable target, String name)\nCrea un nuevo hilo."
+                        + "\nThread(String name)\nCrea un nuevo hilo.");
+                jLabel1.setText("");
+                break;
+            case "activeCount()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna un estimado del numero de hilos activos en el Thread Group del hilo\nactual y sus subgrupos.\nEj: Thread.activeCount()");
+                jLabel1.setText("static int");
+                break;
+            case "checkAccess()":
+                jTextArea1.setText("");
+                jTextArea1.append("Determina si el hilo en ejecucion actual tiene permiso de modificar este hilo.");
+                jLabel1.setText("void");
+                break;
+            case "clone()":
+                jTextArea1.setText("");
+                jTextArea1.append("Arroja un CloneNotSupportedException si el hilo no puede ser\nsignificativamente copiado.");
+                jLabel1.setText("protected Object");
+                break;
+            case "currentThread()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna una referencia al actual hilo de ejecucion.\nPuede terminar arrojando un SecurityException.\nEj: Thread.currentThread()");
+                jLabel1.setText("static Thread");
+                break;
+            case "dumpStack()":
+                jTextArea1.setText("");
+                jTextArea1.append("Imprime un seguimiento de pila del hilo actual en el estandar error stream.\nEj: Thread.dumpStack()");
+                jLabel1.setText("static void");
+                break;
+            case "enumerate(Thread[] tarray)":
+                jTextArea1.setText("");
+                jTextArea1.append("Copia al arreglo especificado cada hilo activo en el Group Thread\ndel hilo actual y en los subgrupos.\nRetorna la cantidad de hilos copiados.\nEj: Thread.enumerate(Thread[] tarray)");
+                jLabel1.setText("static int");
+                break;
+            case "getAllStackTraces()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna un mapa de seguimiento de pila de todos los hilos activos.\nEj: Thread.getAllStackTraces()");
+                jLabel1.setText("static Map<Thread,​StackTraceElement[]>");
+                break;
+            case "getContextClassLoader()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el ClassLoader contextual de este hilo.");
+                jLabel1.setText("ClassLoader");
+                break;
+            case "getDefaultUncaughtExceptionHandler()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el manipulador invocado por defecto cuando un hilo termina\nabruptamente por una excepción sin controlar.\nEj: Thread.getDefaultUncaughtExceptionHandler()");
+                jLabel1.setText("static Thread.UncaughtExceptionHandler");
+                break;
+            case "getId()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el identificador de este hilo.");
+                jLabel1.setText("long");
+                break;
+            case "getName()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el nombre de este hilo.");
+                jLabel1.setText("String");
+                break;
+            case "getPriority()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna la prioridad de este hilo.");
+                jLabel1.setText("int");
+                break;
+            case "getStackTrace()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna un arreglo de elementos de seguimiento de pila representando el\nvaciado de pila de este hilo.");
+                jLabel1.setText("StackTraceElement[]");
+                break;
+            case "getState()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el estado de este hilo.");
+                jLabel1.setText("Thread.State");
+                break;
+            case "getThreadGroup()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el grupo de hilos al que este hilo pertenece.");
+                jLabel1.setText("ThreadGroup");
+                break;
+            case "getUncaughtExceptionHandler()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna el manipulador invocado cuando este hilo termina abruptamente\npor una excepción sin controlar.");
+                jLabel1.setText("Thread.UncaughtExceptionHandler()");
+                break;
+            case "holdsLock(Object obj)":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna true si solo si el hilo actual mantiene el monitor bloqueado\nen el objeto especificado.\nEste metodo esta diseñado para ser usado con los Unit Test.\nEj: assert Thread.holdsLock​(Object obj)");
+                jLabel1.setText("static boolean");
+                break;
+            case "interrupt()":
+                jTextArea1.setText("");
+                jTextArea1.append("Interrumpe el hilo actual.");
+                jLabel1.setText("void");
+                break;
+            case "interrupted()":
+                jTextArea1.setText("");
+                jTextArea1.append("Prueba si el hilo actual ha sido interumpido.\nEj: Thread.interrupted()");
+                jLabel1.setText("static boolean");
+                break;
+            case "isAlive()":
+                jTextArea1.setText("");
+                jTextArea1.append("Prueba si el hilo actual esta vivo.");
+                jLabel1.setText("boolean");
+                break;
+            case "isDaemon()":
+                jTextArea1.setText("");
+                jTextArea1.append("Prueba si este hilo e un hilo daemon.");
+                jLabel1.setText("boolean");
+                break;
+            case "isInterrupted()":
+                jTextArea1.setText("");
+                jTextArea1.append("Prueba si este hilo ha sido interrumpido.");
+                jLabel1.setText("boolean");
+                break;
+            case "join()":
+                jTextArea1.setText("");
+                jTextArea1.append("Espera a este hilo a que muera.");
+                jLabel1.setText("void");
+                break;
+            case "join(long millis)":
+                jTextArea1.setText("");
+                jTextArea1.append("Espera como maximos milisegundos a que este hilo muera.");
+                jLabel1.setText("void");
+                break;
+            case "join(long millis, int nanos)":
+                jTextArea1.setText("");
+                jTextArea1.append("Espera como maximos milisegundos mas nanosegundos a que este hilo muera.");
+                jLabel1.setText("void");
+                break;
+            case "onSpinWait()":
+                jTextArea1.setText("");
+                jTextArea1.append("Indica que el caller es momentaneamente incapaz de progresar hasta que\nse produzcan una o mas acciones de parte de otras actividades.");
+                jLabel1.setText("static void");
+                break;
+            case "run()":
+                jTextArea1.setText("");
+                jTextArea1.append("Si este hilo fue construido usando un objeto Runnable separado, entonces\nentonces llama al metodo run de ese objeto, de lo contrario este metodo no\nhace nada y retorna.");
+                jLabel1.setText("void");
+                break;
+            case "setContextClassLoader(ClassLoader cl)":
+                jTextArea1.setText("");
+                jTextArea1.append("Asigna el ClassLoader contextual para este hilo.");
+                jLabel1.setText("void");
+                break;
+            case "setDaemon(boolean on)":
+                jTextArea1.setText("");
+                jTextArea1.append("Marca este hilo como un hilo daemon o un hilo de usuario.");
+                jLabel1.setText("void");
+                break;
+            case "setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)":
+                jTextArea1.setText("");
+                jTextArea1.append("Configura el manipulador invocado por defecto cuando un hilo termina\nabruptamente por una excepcion sin controlar y no ha sido definido ningun otro\nmanipulador para este hilo.\nEj: Thread.setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)");
+                jLabel1.setText("static void");
+                break;
+            case "setName(String name)":
+                jTextArea1.setText("");
+                jTextArea1.append("Cambia el nombre de este hilo para ser igual al del argumento \"name\".");
+                jLabel1.setText("void");
+                break;
+            case "setPriority(int newPriority)":
+                jTextArea1.setText("");
+                jTextArea1.append("Cambia la prioridad de este hilo.");
+                jLabel1.setText("void");
+                break;
+            case "setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)":
+                jTextArea1.setText("");
+                jTextArea1.append("Asigna el manipulador invocado cuando este hilo termina abruptamente\npor una excepcion sin controlar.");
+                jLabel1.setText("void");
+                break;
+            case "sleep(long millis)":
+                jTextArea1.setText("");
+                jTextArea1.append("Manda al hilo de ejecucion actual a dormir (Cese temporal de ejecucion)\npor el numero de milisegundos especificado sujeto a la precision y exactitud\nde los relojes y planificadores del sistema.\nEj: Thread.sleep(long millis)");
+                jLabel1.setText("static void");
+                break;
+            case "sleep(long millis, int nanos)":
+                jTextArea1.setText("");
+                jTextArea1.append("Manda al hilo de ejecucion actual a dormir (Cese temporal de ejecucion)\npor el numero de milisegundos mas nanosegundos especificado sujeto a la\nprecision y exactitud de los relojes y programadores del sistema.\nEj: Thread.sleep(long millis, int nanos)");
+                jLabel1.setText("static void");
+                break;
+            case "start()":
+                jTextArea1.setText("");
+                jTextArea1.append("Causa que este hilo comience su ejecucion; la JVM llama al metodo run()\nde este hilo.");
+                jLabel1.setText("void");
+                break;
+            case "toString()":
+                jTextArea1.setText("");
+                jTextArea1.append("Retorna la representacion en String de este hilo, incluyendo el nombre de\neste hilo, prioridad y Thread Group.");
+                jLabel1.setText("String");
+                break;
+            case "yield()":
+                jTextArea1.setText("");
+                jTextArea1.append("Una pista para el planificador, de que el hilo actual puede ceder su\nuso actual del procesador.Ej: Thread.yield()");
+                jLabel1.setText("static void");
                 break;
         }
     }
@@ -2500,7 +2836,7 @@ public class Ventana extends javax.swing.JFrame {
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(this, "Versión " + ver + ":\njava.lang. (Clases basicas) añadido.\njava.util. (Arrays y ArrayList) añadido.\nRev 0.1: Documentacion y orden", "Versión", javax.swing.JOptionPane.PLAIN_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Versión " + ver + ":\njava.lang.Thread y Runnable añadido.\nRegistro de cambios completo en el repositorio.", "Versión", javax.swing.JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -2555,6 +2891,10 @@ public class Ventana extends javax.swing.JFrame {
 
     }
 
+    /*
+    * Probablemente la siguiente semana me tenga que cortar. asi que esto es lo minimo que puedo hacer, ya que tenias que verlo antes ^~^.
+    * https://drive.google.com/file/d/16rWxxDLltKmxrGf_S8BylLXXWQ4jYHQf/view?usp=sharing
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
